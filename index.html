@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Present Progressive | Super Goal 2 - Unit 2</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --g:#5fb54f; --gd:#2e7d32; --gl:#e3f1df; --bg:#f4f8f2; --card:#ffffff;
+  --ink:#1d2a1f; --mut:#5b6b5e; --red:#d64541; --redl:#fdeaea; --okl:#e6f5e3;
+  --blue:#1f5fa8; --gold:#f2b705; --line:#d7e5d3;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+.en{font-family:'Nunito',sans-serif;direction:ltr;text-align:left}
+header{background:linear-gradient(135deg,var(--g),var(--gd));color:#fff;padding:22px 16px 60px;text-align:center}
+header .unit{font-family:'Nunito';font-weight:700;opacity:.9;font-size:.95rem}
+header h1{font-family:'Nunito';font-size:clamp(1.6rem,5vw,2.4rem);font-weight:800;margin:4px 0}
+header p{font-size:1.05rem;opacity:.95}
+nav{display:flex;gap:8px;justify-content:center;margin:-34px auto 18px;padding:0 12px;flex-wrap:wrap;max-width:900px}
+nav button{flex:1;min-width:100px;font-family:'Cairo';font-size:1rem;font-weight:700;border:0;border-radius:14px;padding:12px 10px;background:#fff;color:var(--gd);box-shadow:0 4px 14px rgba(0,0,0,.08);cursor:pointer;transition:.2s}
+nav button.active{background:var(--gd);color:#fff}
+main{max-width:900px;margin:0 auto;padding:0 14px 50px}
+section{display:none}
+section.active{display:block;animation:fade .3s}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1}}
+.card{background:var(--card);border-radius:18px;padding:20px;margin-bottom:16px;box-shadow:0 3px 12px rgba(0,0,0,.05);border:1px solid var(--line)}
+.card h2{color:var(--gd);font-size:1.25rem;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.card h2 .num{background:var(--g);color:#fff;width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.formula{background:var(--gl);border-radius:12px;padding:14px;text-align:center;font-family:'Nunito';font-weight:800;font-size:1.15rem;direction:ltr;margin:10px 0}
+.formula span{padding:3px 9px;border-radius:8px;margin:2px;display:inline-block}
+.s{background:#fff;color:var(--blue)} .b{background:var(--gold);color:#3a2c00} .v{background:var(--gd);color:#fff}
+.ex{background:#fafdf9;border-right:4px solid var(--g);padding:8px 12px;border-radius:8px;margin:6px 0}
+.ex .en{font-weight:600}
+.ex small{color:var(--mut);display:block}
+b.hl,.hl{color:var(--gd);font-weight:800}
+.tables{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:10px}
+table{width:100%;border-collapse:collapse;font-family:'Nunito';direction:ltr;font-size:.98rem}
+th{background:var(--g);color:#fff;padding:7px;font-weight:700}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+tr:nth-child(even) td{background:#f8fbf7}
+.tag{display:inline-block;background:var(--gl);color:var(--gd);border-radius:20px;padding:3px 12px;margin:3px;font-family:'Nunito';font-weight:700}
+.tag.no{background:var(--redl);color:var(--red)}
+.note{background:#fff8e1;border:1px solid #f3dd8f;border-radius:12px;padding:10px 14px;margin-top:10px;font-size:.95rem}
+ul.rules{list-style:none}
+ul.rules li{padding:6px 0;border-bottom:1px dashed var(--line)}
+ul.rules li:last-child{border:0}
+
+/* Exercise */
+.dialog{direction:ltr;font-family:'Nunito';font-size:1.05rem}
+.line{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);align-items:baseline;flex-wrap:wrap}
+.who{font-weight:800;color:var(--gd);min-width:52px}
+.txt{flex:1;min-width:220px}
+.blank{display:inline-flex;align-items:center;gap:4px;flex-wrap:wrap}
+.blank input{font-family:'Nunito';font-size:1rem;border:2px solid var(--line);border-radius:10px;padding:4px 8px;width:150px;direction:ltr;outline:none;transition:.2s}
+.blank input:focus{border-color:var(--g)}
+.blank input.ok{border-color:var(--g);background:var(--okl)}
+.blank input.bad{border-color:var(--red);background:var(--redl)}
+.hint{color:var(--mut);font-size:.92rem}
+.why{display:none;direction:rtl;text-align:right;font-family:'Cairo';font-size:.9rem;background:var(--gl);border-radius:10px;padding:6px 10px;margin-top:6px;width:100%}
+.why.show{display:block}
+.why.badwhy{background:var(--redl)}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.btn{font-family:'Cairo';font-weight:700;font-size:1rem;border:0;border-radius:12px;padding:10px 20px;cursor:pointer;background:var(--gd);color:#fff;transition:.2s}
+.btn:hover{filter:brightness(1.1)}
+.btn.alt{background:#fff;color:var(--gd);border:2px solid var(--gd)}
+.result{margin-top:12px;font-weight:700;font-size:1.05rem}
+
+/* Quiz */
+.qbar{position:sticky;top:0;z-index:5;background:var(--bg);padding:10px 0}
+.progress{height:10px;background:#dfe9dc;border-radius:10px;overflow:hidden}
+.progress div{height:100%;background:linear-gradient(90deg,var(--g),var(--gd));width:0;transition:.4s}
+.stats{display:flex;justify-content:space-between;font-weight:700;margin-top:6px;font-size:.95rem}
+.q{position:relative}
+.q .qn{font-size:.85rem;color:var(--mut);font-weight:700}
+.q .qt{font-family:'Nunito';font-weight:700;font-size:1.1rem;direction:ltr;text-align:left;margin:6px 0 12px}
+.q .qt.ar{font-family:'Cairo';direction:rtl;text-align:right}
+.opts{display:grid;gap:8px}
+.opt{font-family:'Nunito';font-size:1rem;text-align:left;direction:ltr;border:2px solid var(--line);background:#fff;border-radius:12px;padding:10px 14px;cursor:pointer;transition:.2s;font-weight:600}
+.opt:hover:not(:disabled){border-color:var(--g);background:#f7fbf6}
+.opt.ok{border-color:var(--g);background:var(--okl)}
+.opt.bad{border-color:var(--red);background:var(--redl)}
+.opt:disabled{cursor:default}
+.tin{display:flex;gap:8px;direction:ltr;flex-wrap:wrap}
+.tin input{flex:1;min-width:160px;font-family:'Nunito';font-size:1rem;border:2px solid var(--line);border-radius:12px;padding:9px 12px;outline:none}
+.tin input:focus{border-color:var(--g)}
+.tin input.ok{border-color:var(--g);background:var(--okl)}
+.tin input.bad{border-color:var(--red);background:var(--redl)}
+.chips,.built{display:flex;flex-wrap:wrap;gap:8px;direction:ltr;min-height:46px;padding:8px;border-radius:12px}
+.built{border:2px dashed var(--line);margin-bottom:8px;background:#fcfefb}
+.chip{font-family:'Nunito';font-weight:700;background:var(--gl);color:var(--gd);border:0;border-radius:10px;padding:7px 13px;cursor:pointer;font-size:1rem}
+.built .chip{background:var(--gd);color:#fff}
+.fb{display:none;margin-top:10px;border-radius:10px;padding:8px 12px;font-size:.93rem}
+.fb.show{display:block}
+.fb.ok{background:var(--okl)} .fb.bad{background:var(--redl)}
+.final{text-align:center;display:none}
+.final.show{display:block}
+.final .big{font-family:'Nunito';font-size:3rem;font-weight:800;color:var(--gd)}
+.stars{font-size:2rem;letter-spacing:4px}
+footer{text-align:center;color:var(--mut);font-size:.85rem;padding:20px}
+@media(max-width:520px){.card{padding:15px}.blank input{width:125px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="unit">Super Goal 2 · Unit 2 · What Are They Making?</div>
+  <h1>Present Progressive</h1>
+  <p>المضارع المستمر — شرح • تمرين • اختبار</p>
+</header>
+
+<nav>
+  <button class="active" data-tab="learn">📘 الشرح</button>
+  <button data-tab="practice">✍️ حل التمرين A</button>
+  <button data-tab="quiz">🏆 الاختبار</button>
+</nav>
+
+<main>
+<!-- ================= LEARN ================= -->
+<section id="learn" class="active">
+
+  <div class="card">
+    <h2><span class="num">1</span>متى نستخدم المضارع المستمر؟</h2>
+    <p>نستخدمه للتعبير عن <b class="hl">حدث يحدث الآن</b> في لحظة الكلام.</p>
+    <div class="ex"><div class="en">Look! The boys <b class="hl">are playing</b> football.</div><small>انظر! الأولاد يلعبون كرة القدم (الآن).</small></div>
+    <p style="margin-top:8px">كلمات تدل عليه:</p>
+    <div class="en" style="text-align:center">
+      <span class="tag">now</span><span class="tag">right now</span><span class="tag">at the moment</span><span class="tag">Look!</span><span class="tag">Listen!</span><span class="tag">today</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">2</span>تكوين الجملة</h2>
+    <div class="formula"><span class="s">Subject</span> + <span class="b">am / is / are</span> + <span class="v">verb + ing</span></div>
+    <div class="tables">
+      <table>
+        <tr><th colspan="2">Affirmative (+)</th></tr>
+        <tr><td>I am → <b>I'm</b></td><td rowspan="6" style="vertical-align:middle;font-weight:800;color:var(--gd)">working.</td></tr>
+        <tr><td>You are → <b>You're</b></td></tr>
+        <tr><td>He is → <b>He's</b></td></tr>
+        <tr><td>She is → <b>She's</b></td></tr>
+        <tr><td>We are → <b>We're</b></td></tr>
+        <tr><td>They are → <b>They're</b></td></tr>
+      </table>
+      <table>
+        <tr><th colspan="2">Negative (−)</th></tr>
+        <tr><td><b>I'm not</b></td><td rowspan="6" style="vertical-align:middle;font-weight:800;color:var(--red)">working.</td></tr>
+        <tr><td>You <b>aren't</b></td></tr>
+        <tr><td>He <b>isn't</b></td></tr>
+        <tr><td>She <b>isn't</b></td></tr>
+        <tr><td>We <b>aren't</b></td></tr>
+        <tr><td>They <b>aren't</b></td></tr>
+      </table>
+    </div>
+    <div class="note">⚠️ لا نقول <span class="en" style="display:inline">I amn't</span> — الصحيح <span class="en" style="display:inline"><b>I'm not</b></span>.</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">3</span>السؤال والإجابة</h2>
+    <p><b>أسئلة نعم/لا:</b> نقدّم <span class="en" style="display:inline"><b>am / is / are</b></span> على الفاعل.</p>
+    <div class="ex"><div class="en"><b class="hl">Is</b> she reading? — Yes, she <b class="hl">is</b>. / No, she <b class="hl">isn't</b>.</div></div>
+    <div class="ex"><div class="en"><b class="hl">Are</b> they working? — Yes, they <b class="hl">are</b>. / No, they <b class="hl">aren't</b>.</div></div>
+    <div class="ex"><div class="en"><b class="hl">Are</b> you reading? — Yes, I <b class="hl">am</b>. / No, I<b class="hl">'m not</b>.</div></div>
+    <p style="margin-top:10px"><b>أسئلة المعلومات:</b> نبدأ بأداة الاستفهام.</p>
+    <div class="formula"><span class="s">What / Where / Who</span> + <span class="b">am / is / are</span> + <span class="s">subject</span> + <span class="v">verb-ing</span>?</div>
+    <div class="ex"><div class="en">What <b class="hl">are</b> you <b class="hl">doing</b> now? — I<b class="hl">'m studying</b>.</div></div>
+    <div class="note">⚠️ في الإجابة القصيرة بـ <b>Yes</b> لا نختصر: نقول <span class="en" style="display:inline"><b>Yes, he is.</b></span> وليس <span class="en" style="display:inline">Yes, he's.</span></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">4</span>قواعد إضافة ing</h2>
+    <ul class="rules">
+      <li>أغلب الأفعال: نضيف ing مباشرة ← <span class="en" style="display:inline"><b>read → reading, play → playing</b></span></li>
+      <li>ينتهي بـ e صامتة: نحذف e ← <span class="en" style="display:inline"><b>make → making, write → writing</b></span></li>
+      <li>ساكن + متحرك + ساكن (مقطع واحد): نضاعف الأخير ← <span class="en" style="display:inline"><b>run → running, sit → sitting</b></span></li>
+      <li>ينتهي بـ ie: نحوّلها إلى y ← <span class="en" style="display:inline"><b>lie → lying, die → dying</b></span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">5</span>أفعال لا تأتي عادةً في المستمر</h2>
+    <p>أفعال الشعور والحواس والرغبة نستخدمها في <b class="hl">المضارع البسيط</b> حتى لو كان المعنى "الآن":</p>
+    <div class="en" style="text-align:center;margin:8px 0">
+      <span class="tag no">like</span><span class="tag no">love</span><span class="tag no">want</span><span class="tag no">see</span><span class="tag no">smell</span><span class="tag no">taste</span><span class="tag no">hear</span>
+    </div>
+    <div class="ex"><div class="en">✅ I <b class="hl">like</b> martial arts films. &nbsp; ❌ I'm liking…</div></div>
+    <div class="ex"><div class="en">✅ I <b class="hl">don't hear</b> anything. &nbsp; ❌ I'm not hearing…</div></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">6</span>المستمر للمستقبل</h2>
+    <p>نستخدمه أيضًا لخطط مرتّبة في المستقبل القريب، ومعه كلمة زمن مستقبلية:</p>
+    <div class="ex"><div class="en"><b>A:</b> What are you doing <b class="hl">tomorrow</b>?<br><b>B:</b> I<b class="hl">'m going</b> to the park.</div></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">7</span>المستمر أم البسيط؟</h2>
+    <div class="tables">
+      <table>
+        <tr><th>Simple Present</th></tr>
+        <tr><td>عادة أو حقيقة ثابتة</td></tr>
+        <tr><td><i>usually, every day, always</i></td></tr>
+        <tr><td>He usually <b>plays</b> a detective.</td></tr>
+      </table>
+      <table>
+        <tr><th>Present Progressive</th></tr>
+        <tr><td>حدث الآن</td></tr>
+        <tr><td><i>now, at the moment, Look!</i></td></tr>
+        <tr><td>He <b>is wearing</b> a raincoat now.</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="btns"><button class="btn" onclick="goTab('practice')">انتقل إلى التمرين ←</button></div>
+</section>
+
+<!-- ================= PRACTICE ================= -->
+<section id="practice">
+  <div class="card">
+    <h2><span class="num">A</span>أكمل المحادثة</h2>
+    <p class="en" style="color:var(--mut)">Complete the conversation. Use the present progressive or simple present form of the verbs in parentheses.</p>
+    <div class="dialog" id="dialog"></div>
+    <div class="btns">
+      <button class="btn" onclick="checkEx()">✔ تحقق من إجاباتي</button>
+      <button class="btn alt" onclick="showEx()">👁 أظهر الحل</button>
+      <button class="btn alt" onclick="resetEx()">↺ إعادة</button>
+    </div>
+    <div class="result" id="exResult"></div>
+  </div>
+</section>
+
+<!-- ================= QUIZ ================= -->
+<section id="quiz">
+  <div class="qbar">
+    <div class="progress"><div id="bar"></div></div>
+    <div class="stats"><span id="answered">0 / 0</span><span id="score">الدرجة: 0</span></div>
+  </div>
+  <div id="qlist"></div>
+  <div class="card final" id="final">
+    <div class="stars" id="stars"></div>
+    <div class="big" id="finalScore"></div>
+    <p id="finalMsg"></p>
+    <div class="btns" style="justify-content:center"><button class="btn" onclick="buildQuiz()">↺ أعد الاختبار</button></div>
+  </div>
+</section>
+</main>
+
+<footer class="en" style="text-align:center">Super Goal 2 · Unit 2 · Grammar: Present Progressive</footer>
+
+<script>
+/* ---------- Tabs ---------- */
+function goTab(id){
+  document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));
+  document.querySelectorAll('section').forEach(s=>s.classList.toggle('active',s.id===id));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>goTab(b.dataset.tab));
+
+const norm=s=>s.toLowerCase().replace(/[’‘`]/g,"'").replace(/[.?!,]/g,'').replace(/\s+/g,' ').trim();
+
+/* ---------- Exercise A ---------- */
+const dialog=[
+ {who:'Adel',parts:['Excuse me. What ',{n:1,v:'happen',a:['is happening'],why:'حدث يحصل الآن ← <b>is happening</b> (What + is + subject... ، والفاعل هنا ضمني "what").'},'?']},
+ {who:'Greg',parts:['They ',{n:2,v:'make',a:['are making'],why:'يصوّرون المسلسل الآن ← <b>are making</b> (نحذف e من make).'},' a TV series.']},
+ {who:'Adel',parts:['What kind of series is it?']},
+ {who:'Greg',parts:["It's a detective story."]},
+ {who:'Adel',parts:['Oh, I ',{n:3,v:'love',a:['love'],why:'<b>love</b> من الأفعال التي لا تأتي في المستمر ← مضارع بسيط.'},' detective stories.']},
+ {who:'Greg',parts:["Eric McGuire is the director. That's him over there. He ",{n:4,v:'talk',a:['is talking'],why:'يتحدث الآن (That\'s him over there) ← <b>is talking</b>.'},' to Brad Novak, the actor.']},
+ {who:'Adel',parts:['Who is that tall guy over there? He ',{n:5,v:'wear',a:['is wearing'],why:'يرتدي المعطف الآن أمامنا ← <b>is wearing</b>.'},' a raincoat.']},
+ {who:'Greg',parts:["Oh, that's Adam Scott. He usually ",{n:6,v:'play',a:['plays'],why:'كلمة <b>usually</b> تدل على عادة ← مضارع بسيط <b>plays</b>.'},' a smart detective. In this scene, he ',{n:7,v:'hear',a:['hears'],why:'<b>hear</b> لا يأتي في المستمر، والجملة تصف أحداث المشهد (goes) بالبسيط ← <b>hears</b>.'},' an explosion and goes to investigate.']},
+ {who:'Adel',parts:['Oh, look. They ',{n:8,v:'start',a:['are starting'],why:'كلمة <b>look</b> تدل على أن الحدث يحصل الآن ← <b>are starting</b>.'},' to film.']}
+];
+const exItems=[];
+function buildEx(){
+  const box=document.getElementById('dialog'); box.innerHTML='';
+  dialog.forEach(l=>{
+    const row=document.createElement('div'); row.className='line';
+    row.innerHTML=`<span class="who">${l.who}:</span>`;
+    const t=document.createElement('div'); t.className='txt';
+    const whys=[];
+    l.parts.forEach(p=>{
+      if(typeof p==='string'){t.append(document.createTextNode(p));}
+      else{
+        const w=document.createElement('span'); w.className='blank';
+        const inp=document.createElement('input'); inp.setAttribute('autocomplete','off'); inp.setAttribute('autocapitalize','off');
+        w.innerHTML=`<b>(${p.n})</b>`; w.append(inp);
+        const h=document.createElement('span'); h.className='hint'; h.textContent=`(${p.v})`; w.append(h);
+        t.append(w);
+        const wy=document.createElement('div'); wy.className='why'; wy.innerHTML=`<b>(${p.n})</b> ${p.why}`;
+        whys.push(wy); exItems.push({inp,wy,p});
+      }
+    });
+    whys.forEach(w=>t.append(w));
+    row.append(t); box.append(row);
+  });
+}
+function checkEx(){
+  let c=0;
+  exItems.forEach(({inp,wy,p})=>{
+    const ok=p.a.includes(norm(inp.value));
+    inp.classList.toggle('ok',ok); inp.classList.toggle('bad',!ok);
+    wy.classList.add('show'); wy.classList.toggle('badwhy',!ok);
+    if(ok)c++;
+  });
+  document.getElementById('exResult').innerHTML=`نتيجتك: <span class="en" style="display:inline">${c} / ${exItems.length}</span> ${c===exItems.length?'🎉 ممتاز!':'— راجع الإجابات الحمراء.'}`;
+}
+function showEx(){
+  exItems.forEach(({inp,wy,p})=>{inp.value=p.a[0];inp.classList.add('ok');inp.classList.remove('bad');wy.classList.add('show');wy.classList.remove('badwhy');});
+  document.getElementById('exResult').textContent='هذا هو الحل النموذجي مع السبب لكل إجابة.';
+}
+function resetEx(){exItems.length=0;buildEx();document.getElementById('exResult').textContent='';}
+buildEx();
+
+/* ---------- Quiz ---------- */
+const QUIZ=[
+ {t:'mc',q:'Look! The children ______ in the garden.',o:['play','are playing','plays','is playing'],a:1,why:'Look! تدل على الآن، و children جمع ← are playing.'},
+ {t:'mc',q:'I ______ pizza. It\'s my favorite food.',o:['am liking','like','likes','am like'],a:1,why:'like لا يأتي في المستمر ← I like.'},
+ {t:'mc',q:'______ she reading a book now?',o:['Am','Are','Is','Does'],a:2,why:'مع she نستخدم Is.'},
+ {t:'mc',q:'They ______ watching TV. They\'re sleeping.',o:["isn't","aren't","not","don't"],a:1,why:"مع they النفي aren't."},
+ {t:'mc',q:'A: Are you working?  B: No, ______.',o:["I'm not","I amn't","I don't","I aren't"],a:0,why:"الصيغة الصحيحة No, I'm not."},
+ {t:'mc',q:'A: Is he swimming?  B: Yes, ______.',o:["he's","he is","he does","is he"],a:1,why:"في الإجابة القصيرة بـ Yes لا نختصر ← Yes, he is."},
+ {t:'mc',q:'Listen! Someone ______ at the door.',o:['knocks','knocking','is knocking','are knocking'],a:2,why:'Listen! تدل على الآن، و someone مفرد ← is knocking.'},
+ {t:'mc',q:'Which verb is NOT usually used in the present progressive?',o:['run','cook','want','write'],a:2,why:'want من أفعال الرغبة ← لا تأتي في المستمر.'},
+ {t:'mc',q:'Which sentence talks about the FUTURE?',o:["I'm reading a story now.","I'm visiting my grandma on Friday.","She's cooking at the moment.","Look! It's raining."],a:1,why:'on Friday كلمة زمن مستقبلية ← خطة مستقبلية.'},
+ {t:'mc',q:'What ______ you doing tomorrow?',o:['is','do','are','am'],a:2,why:'مع you نستخدم are.'},
+ {t:'txt',q:'We ______ English right now. (study)',a:['are studying',"'re studying"],why:'we + are + studying.'},
+ {t:'txt',q:'She ______ an email at the moment. (write)',a:['is writing',"'s writing"],why:'نحذف e: write → writing.'},
+ {t:'txt',q:'Look! He ______ in the park. (run)',a:['is running',"'s running"],why:'نضاعف n: run → running.'},
+ {t:'txt',q:'Mmm! This soup ______ delicious. (smell)',a:['smells'],why:'smell (بمعنى له رائحة) لا يأتي في المستمر ← smells.'},
+ {t:'ord',q:'رتّب الكلمات لتكوين سؤال:',w:['making','they','What','are','?'],a:'What are they making ?',why:'What + are + they + making?'},
+ {t:'ord',q:'رتّب الكلمات لتكوين جملة منفية:',w:['reading','not','He','a book','is','.'],a:'He is not reading a book .',why:'He + is not + reading + a book.'}
+];
+let score=0,answered=0;
+const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+function updateBar(){
+  document.getElementById('bar').style.width=(answered/QUIZ.length*100)+'%';
+  document.getElementById('answered').innerHTML=`<span class="en" style="display:inline">${answered} / ${QUIZ.length}</span> سؤال`;
+  document.getElementById('score').textContent='الدرجة: '+score;
+  if(answered===QUIZ.length)showFinal();
+}
+function done(card,ok,why){
+  answered++; if(ok)score++;
+  const fb=card.querySelector('.fb');
+  fb.className='fb show '+(ok?'ok':'bad');
+  fb.innerHTML=(ok?'✅ صحيح! ':'❌ غير صحيح. ')+why;
+  updateBar();
+}
+function buildQuiz(){
+  score=0;answered=0;
+  const list=document.getElementById('qlist'); list.innerHTML='';
+  document.getElementById('final').classList.remove('show');
+  QUIZ.forEach((q,i)=>{
+    const c=document.createElement('div'); c.className='card q';
+    const isAr=q.t==='ord';
+    c.innerHTML=`<div class="qn">السؤال ${i+1}</div><div class="qt ${isAr?'ar':''}">${q.q}</div>`;
+    if(q.t==='mc'){
+      const box=document.createElement('div'); box.className='opts';
+      q.o.forEach((o,k)=>{
+        const b=document.createElement('button'); b.className='opt'; b.textContent=o;
+        b.onclick=()=>{
+          box.querySelectorAll('.opt').forEach((x,m)=>{x.disabled=true;if(m===q.a)x.classList.add('ok');});
+          if(k!==q.a)b.classList.add('bad');
+          done(c,k===q.a,q.why);
+        };
+        box.append(b);
+      });
+      c.append(box);
+    }else if(q.t==='txt'){
+      const box=document.createElement('div'); box.className='tin';
+      const inp=document.createElement('input'); inp.placeholder='Type your answer...'; inp.setAttribute('autocomplete','off'); inp.setAttribute('autocapitalize','off');
+      const b=document.createElement('button'); b.className='btn'; b.textContent='تحقق';
+      const go=()=>{
+        if(!inp.value.trim())return;
+        const ok=q.a.includes(norm(inp.value));
+        inp.disabled=true;b.disabled=true;inp.classList.add(ok?'ok':'bad');
+        done(c,ok,q.why+(ok?'':` الإجابة: <b class="en" style="display:inline">${q.a[0]}</b>`));
+      };
+      b.onclick=go; inp.onkeydown=e=>{if(e.key==='Enter')go();};
+      box.append(inp,b); c.append(box);
+    }else{
+      const built=document.createElement('div'); built.className='built';
+      const chips=document.createElement('div'); chips.className='chips';
+      const mk=(w,from,to)=>{
+        const ch=document.createElement('button'); ch.className='chip'; ch.textContent=w;
+        ch.onclick=()=>{if(c.dataset.locked)return;to.append(ch);const t=from;from=to;to=t;};
+        return ch;
+      };
+      shuffle(q.w).forEach(w=>chips.append(mk(w,chips,built)));
+      const b=document.createElement('button'); b.className='btn'; b.textContent='تحقق'; b.style.marginTop='8px';
+      b.onclick=()=>{
+        if(chips.children.length)return;
+        const ans=[...built.children].map(x=>x.textContent).join(' ');
+        const ok=norm(ans)===norm(q.a);
+        c.dataset.locked=1;b.disabled=true;
+        built.style.borderColor=ok?'var(--g)':'var(--red)';
+        done(c,ok,q.why+(ok?'':` الإجابة: <b class="en" style="display:inline">${q.a.replace(/ ([?.])$/,'$1')}</b>`));
+      };
+      c.append(built,chips,b);
+    }
+    const fb=document.createElement('div'); fb.className='fb'; c.append(fb);
+    list.append(c);
+  });
+  updateBar();
+}
+function showFinal(){
+  const pct=Math.round(score/QUIZ.length*100);
+  const f=document.getElementById('final'); f.classList.add('show');
+  document.getElementById('finalScore').textContent=`${score} / ${QUIZ.length}`;
+  document.getElementById('stars').textContent=pct>=90?'⭐⭐⭐':pct>=70?'⭐⭐':pct>=50?'⭐':'💪';
+  document.getElementById('finalMsg').textContent=pct>=90?'ممتاز! أتقنت المضارع المستمر.':pct>=70?'أحسنت! راجع الأخطاء القليلة.':pct>=50?'جيد، راجع الشرح ثم أعد المحاولة.':'لا بأس! راجع الشرح وحاول مرة أخرى.';
+  setTimeout(()=>f.scrollIntoView({behavior:'smooth'}),300);
+}
+buildQuiz();
+</script>
+</body>
+</html>
